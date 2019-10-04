@@ -7,7 +7,7 @@ date: September 25, 2019
 This is a recreation of the computational model from March JG. 1991. Exploration
 and Exploitation in Organizational Learning, Organization Science. 2(1):71-87
 
-The model has been based on the description from the paper itself (the relevant
+The code is based on the description from the paper itself (the relevant
 quotes are included in the code with a reference to page on which they appear
 in the original manuscript), but also on Rodan (2005) and especially the note
 by Michael Christensen (2015), both of which describe the missing steps
