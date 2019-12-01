@@ -308,19 +308,17 @@ for p1 in P1_list:  # over the speed of learning of individuals
                 
                 # Opportunity for an individual to learn from the code ===========
                 # Now let's see if it is still possible for individuals to learn from
-                # the code. Here some may say that this condition alone should be
-                # sufficient. However, there exists a very small probability that
-                # all agents have the same beliefs as the code, but on one or more
-                # dimensions the shared belief is equal to 0. That means that
-                # individuals won't learn from the code, but the code can still
-                # learn from the actions of individuals. Probability of this
-                # happening decreases with n.
+                # the code, given that individuals only learn on non-zero code dimensions.
+                # When there is any 0 left in the code, the "pontential-superior" 
+                # condition is necessary. In this case, individuals won't learn from 
+                # the code, but the code can still learn from the actions of individuals. 
+                # Probability of this happening decreases with n.
                 # This means that we still need the previous condition.
                 
                 individual_opportunity = 0  # let's assume there is no opportunity for individuals
                 for n_ in np.arange(n):
-                    if int(sum(beliefs[:, n_]==org_code)) != m:
-                        # we are checking if each individual differs from the code
+                    if any((beliefs[:, n_]!=org_code)&(org_code!=0)):
+                        # we are checking if any individual differs from the code on non-zero dimensions
                         individual_opportunity = 1
                 
                 if code_opportunity == 0 and individual_opportunity == 0:
